@@ -10,7 +10,7 @@ except ImportError:
 from django.conf import settings
 from django.template.loader import render_to_string
 from django.utils.translation import get_language
-from django.utils.encoding import force_text
+from django.utils.encoding import force_str
 
 from ._compat import want_bytes, urlencode, Request, urlopen, PY2
 
