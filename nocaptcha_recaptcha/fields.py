@@ -5,7 +5,7 @@ from django import forms
 from django.conf import settings
 
 try:
-    from django.utils.encoding import smart_unicode
+    from django.utils.encoding import smart_text
 except ImportError:
     from django.utils.encoding import smart_str
 
@@ -61,7 +61,7 @@ class NoReCaptchaField(forms.CharField):
 
     def clean(self, value):
         super(NoReCaptchaField, self).clean(value)
-        g_nocaptcha_response_value = smart_unicode(value)
+        g_nocaptcha_response_value = smart_text(value)
         if os.environ.get('NORECAPTCHA_TESTING', None) == 'True' \
                 and g_nocaptcha_response_value == 'PASSED':
             return value
